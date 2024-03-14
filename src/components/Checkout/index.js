@@ -71,20 +71,12 @@ const Checkout = () => {
   };
 
   // const handleOrder = () => {
-<<<<<<< HEAD
   // dispatch(createOrder({total: subtotal}));
-=======
-    // dispatch(createOrder({total: subtotal}));
->>>>>>> 6061fe6a6b824b7588206d28c305aa77c2c5e749
   // };
 
   const handleGoToCash = () => {
     if (checkout.length > 0) {
-<<<<<<< HEAD
       navigation.navigate('Customers', { value: subtotal });
-=======
-      navigation.navigate('Customers', {value: subtotal});
->>>>>>> 6061fe6a6b824b7588206d28c305aa77c2c5e749
       // navigation.navigate('Customers');
 
     } else {

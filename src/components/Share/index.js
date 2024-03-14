@@ -59,7 +59,10 @@ const Share = () => {
           style={[
             styles.bgLight,
             styles.shadow,
-            {padding: 10, position: 'absolute', width: 350, height: 350 ,left:'50%', top:'50%',transform: [{translateX: '-50%'}],transform: [{translateY: '-50%'}]},
+            {padding: 10, position: 'absolute', width: 350, height: 350 ,left:'50%', top:'50%'
+          
+          
+          },
           ]}>
           <Text style={[styles.semiBoldText, styles.dark, styles.shadow]}>
             Successfullu Shared
