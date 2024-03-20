@@ -42,6 +42,7 @@ const Home = () => {
     }
   };
 
+
   const fetchOrders = async () => {
     try {
       console.log('calling fetching');
