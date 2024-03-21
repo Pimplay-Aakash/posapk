@@ -23,9 +23,9 @@ const Customers = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredCustomers, setFilteredCustomers] = useState([]);
   // const [Isloading,setIsloadig] = useState(true)
-  const [customers] = useState([
-    {id: 1, name: 'John Doe', email: 'john@gmail.com'},
-  ]);
+  // const [customers] = useState([
+  //   {id: 1, name: 'John Doe', email: 'john@gmail.com'},
+  // ]);
   console.log('customers', data);
   const navigation = useNavigation();
   const route = useRoute();
@@ -62,16 +62,17 @@ const Customers = () => {
   //   console.log('addCustomer');
   //   navigation.navigate('Adduser');
   // };
-
+ const total = route.params.total
+ const items = route.params.items
   const navigateToAddUser = () => {
     console.log('Navigate to AddUser');
-    navigation.navigate('Adduser');
+    navigation.navigate('Adduser',{total: total, items: items});
   };
-
+ 
   const handleItemPress = item => {
     console.log('Selected customer:', item);
     navigation.navigate('Cash', {
-      value: route.params.value,
+      total: route.params.total,
       user: item,
       items: route.params.items,
     });

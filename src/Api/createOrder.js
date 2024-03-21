@@ -19,9 +19,9 @@ export const creatingOrder = async (order) => {
     });
     const result = await client.graphql({
       query: `
-      mutation CreateOrder($items: [OrderItemInput]!,$paymentMethod: PaymentCategory!, $totalPrice: Float!, $customerOrdersId: ID!) {
-        createOrder(input: {
-          status:FULFIL,
+      mutation CreateOrder($items: [OrderItemInput]!,$paymentMethod: PaymentCategory!, $totalPrice: Float!,$status: OrderStatus!, $customerOrdersId: ID!) {
+        createOrder(input: { 
+          status:$status,
           items: $items,
           paymentMethod: $paymentMethod,
           totalPrice: $totalPrice,
@@ -31,9 +31,9 @@ export const creatingOrder = async (order) => {
           totalPrice
         }
       }
-      
       `,
       variables: {
+        status:'FULFILLED',
         items: order.items,
         paymentMethod: order.paymentMethod,
         totalPrice: order.totolPrice,

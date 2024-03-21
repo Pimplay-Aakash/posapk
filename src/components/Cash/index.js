@@ -13,7 +13,7 @@ import {createOrder} from '../../redux/slice/customerSlice';
 
 const Cash = () => {
   const routdata = useRoute();
-  console.log("route value",routdata.params.value);
+  console.log("route value",routdata.params.total);
   console.log("route user",routdata.params.user);
   const navigation = useNavigation();
 
@@ -23,7 +23,7 @@ const Cash = () => {
   const dispatch = useDispatch();
 
   const handleOrder = (payment) => {
-    const total =  routdata.params.value
+    const total =  routdata.params.total
     const user =  routdata.params.user
     const items = routdata.params.items
     const orderData = {paymentMethod: payment , totolPrice:total , user:user,items:items}
@@ -87,7 +87,7 @@ const Cash = () => {
           }}>
           <Text style={{fontWeight: 600, fontSize: 17,color:"black"}}>
             {' '}
-            ₹ {routdata.params.value}.00
+            ₹ {routdata.params.total}.00
           </Text>
           <Text style={{fontSize: 14, fontWeight: 500,color:"black"}}>
             Select Payment Option

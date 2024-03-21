@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {TextInput, View, Text, Button} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {createCustomer} from '../../redux/slice/customerSlice';
 import {useDispatch} from 'react-redux';
 // import Fontisto from 'react-native-vector-icons/Fontisto';
@@ -10,18 +10,22 @@ const Adduser = () => {
     name: '',
     phone: '',
   });
+
+  
   const dispatch = useDispatch();
+  const route =  useRoute();
 
   const handleChange = (name, value) => {
     setInputUser({...inputUser, [name]: value});
   };
-
+  const total = route.params.total
+  const items = route.params.items
   const handleSubmit = () => {
     console.log('details',inputUser);
     dispatch(createCustomer(inputUser));
     console.log('sending user', inputUser);
-    Navigation.navigate('Customers');
-    setReloadScreen(true);
+    Navigation.navigate('Customers',{total: total, items: items});
+    // setReloadScreen(true);
   };
 
   const navigation = useNavigation();

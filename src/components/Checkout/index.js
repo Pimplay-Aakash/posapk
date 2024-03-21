@@ -98,8 +98,8 @@ const Checkout = () => {
 
   const handleGoToCash = () => {
     if (checkout.length > 0) {
-      navigation.navigate('Customers', {value: subtotal, items: orderArray});
-      dispatch(createOrder({total: subtotal, items: orderArray}));
+      navigation.navigate('Customers', {total: subtotal, items: orderArray});
+      // dispatch(createOrder({total: subtotal, items: orderArray}));
       // navigation.navigate('Customers');
     } else {
       setShowAlert(true); // Show alert if the cart is empty
